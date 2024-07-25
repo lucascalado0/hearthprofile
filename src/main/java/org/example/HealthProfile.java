@@ -1,6 +1,6 @@
 package org.example;
-import java.time.LocalDate; //objeto para data e hora - estudar
-import java.time.Period; //objeto para periodo - estudar
+import java.time.LocalDate;
+import java.time.Period;
 
 public class HealthProfile {
     private String firstName;
@@ -94,19 +94,19 @@ public class HealthProfile {
     }
 
     public int getAge(){
-        LocalDate birthDate = LocalDate.of(birthYear, birthMonth, birthDay ); // para conseguir data de aniversario
-        LocalDate currentDate = LocalDate.now(); //para buscar no sistema a data atual no dispositivo
+        LocalDate birthDate = LocalDate.of(birthYear, birthMonth, birthDay );
+        LocalDate currentDate = LocalDate.now();
 
         return Period.between(birthDate, currentDate).getYears();
     }
 
-    public int getMaxHeartRate(){ //metodo para definir frequencia cardiaca maxima
-        return 220 - getAge();  //formula para frequencia cardiaca maxima
+    public int getMaxHeartRate(){
+        return 220 - getAge();
     }
 
-    public String getTargetHeartRate() { //para definir frequencia cardiaca alvo
+    public String getTargetHeartRate() {
         int maxHeartRate = getMaxHeartRate();
-        int lowerBound = (int) (maxHeartRate * 0.50); //(int) converte o tipo de (maxHeartRate * 0.50) para int
+        int lowerBound = (int) (maxHeartRate * 0.50);
         int upperBound = (int) (maxHeartRate * 0.85);
 
         return "lowerBound: " + lowerBound + " / " + "upperBound: " + upperBound;
